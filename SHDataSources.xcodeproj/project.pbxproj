@@ -8,26 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B91EFB3418DC7D0900393E45 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B91EFB3318DC7D0900393E45 /* Foundation.framework */; };
-		B91EFB4218DC7D0900393E45 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B91EFB4118DC7D0900393E45 /* XCTest.framework */; };
-		B91EFB4318DC7D0900393E45 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B91EFB3318DC7D0900393E45 /* Foundation.framework */; };
-		B91EFB4518DC7D0900393E45 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B91EFB4418DC7D0900393E45 /* UIKit.framework */; };
-		B91EFB4818DC7D0900393E45 /* libSHDataSources.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B91EFB3018DC7D0900393E45 /* libSHDataSources.a */; };
-		B91EFB4E18DC7D0900393E45 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B91EFB4C18DC7D0900393E45 /* InfoPlist.strings */; };
-		B91EFB5018DC7D0900393E45 /* SHDataSourcesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B91EFB4F18DC7D0900393E45 /* SHDataSourcesTests.m */; };
 		B91EFB7A18DC7DE900393E45 /* SHArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B91EFB7518DC7DE900393E45 /* SHArrayDataSource.m */; };
 		B91EFB7B18DC7DE900393E45 /* SHEmptyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B91EFB7718DC7DE900393E45 /* SHEmptyDataSource.m */; };
 		B91EFB7C18DC7DE900393E45 /* SHMutableArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B91EFB7918DC7DE900393E45 /* SHMutableArrayDataSource.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B91EFB4618DC7D0900393E45 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B91EFB2818DC7D0900393E45 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B91EFB2F18DC7D0900393E45;
-			remoteInfo = SHDataSources;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		B91EFB2E18DC7D0900393E45 /* CopyFiles */ = {
@@ -44,20 +28,17 @@
 /* Begin PBXFileReference section */
 		B91EFB3018DC7D0900393E45 /* libSHDataSources.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHDataSources.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B91EFB3318DC7D0900393E45 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B91EFB4018DC7D0900393E45 /* SHDataSourcesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHDataSourcesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B91EFB4118DC7D0900393E45 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B91EFB4418DC7D0900393E45 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		B91EFB4B18DC7D0900393E45 /* SHDataSourcesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SHDataSourcesTests-Info.plist"; sourceTree = "<group>"; };
-		B91EFB4D18DC7D0900393E45 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B91EFB4F18DC7D0900393E45 /* SHDataSourcesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHDataSourcesTests.m; sourceTree = "<group>"; };
 		B91EFB5C18DC7D5800393E45 /* SHDataSources-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SHDataSources-Prefix.pch"; path = "Classes/SHDataSources-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		B91EFB7318DC7DE900393E45 /* SHArrayDataSource_Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHArrayDataSource_Protected.h; path = Classes/SHArrayDataSource_Protected.h; sourceTree = SOURCE_ROOT; };
 		B91EFB7418DC7DE900393E45 /* SHArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHArrayDataSource.h; path = Classes/SHArrayDataSource.h; sourceTree = SOURCE_ROOT; };
 		B91EFB7518DC7DE900393E45 /* SHArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHArrayDataSource.m; path = Classes/SHArrayDataSource.m; sourceTree = SOURCE_ROOT; };
 		B91EFB7618DC7DE900393E45 /* SHEmptyDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHEmptyDataSource.h; path = Classes/SHEmptyDataSource.h; sourceTree = SOURCE_ROOT; };
 		B91EFB7718DC7DE900393E45 /* SHEmptyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHEmptyDataSource.m; path = Classes/SHEmptyDataSource.m; sourceTree = SOURCE_ROOT; };
 		B91EFB7818DC7DE900393E45 /* SHMutableArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMutableArrayDataSource.h; path = Classes/SHMutableArrayDataSource.h; sourceTree = SOURCE_ROOT; };
 		B91EFB7918DC7DE900393E45 /* SHMutableArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMutableArrayDataSource.m; path = Classes/SHMutableArrayDataSource.m; sourceTree = SOURCE_ROOT; };
+		B91EFB9318DC865F00393E45 /* SHDataSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHDataSources.h; path = Classes/SHDataSources.h; sourceTree = SOURCE_ROOT; };
+		B91EFB9618DC86E500393E45 /* SHArrayDataSource_Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHArrayDataSource_Protected.h; path = private_headers/SHArrayDataSource_Protected.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,17 +50,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B91EFB3D18DC7D0900393E45 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B91EFB4218DC7D0900393E45 /* XCTest.framework in Frameworks */,
-				B91EFB4818DC7D0900393E45 /* libSHDataSources.a in Frameworks */,
-				B91EFB4518DC7D0900393E45 /* UIKit.framework in Frameworks */,
-				B91EFB4318DC7D0900393E45 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -87,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				B91EFB3518DC7D0900393E45 /* SHDataSources */,
-				B91EFB4918DC7D0900393E45 /* SHDataSourcesTests */,
 				B91EFB3218DC7D0900393E45 /* Frameworks */,
 				B91EFB3118DC7D0900393E45 /* Products */,
 			);
@@ -97,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				B91EFB3018DC7D0900393E45 /* libSHDataSources.a */,
-				B91EFB4018DC7D0900393E45 /* SHDataSourcesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,7 +83,8 @@
 		B91EFB3518DC7D0900393E45 /* SHDataSources */ = {
 			isa = PBXGroup;
 			children = (
-				B91EFB7318DC7DE900393E45 /* SHArrayDataSource_Protected.h */,
+				B91EFB9618DC86E500393E45 /* SHArrayDataSource_Protected.h */,
+				B91EFB9318DC865F00393E45 /* SHDataSources.h */,
 				B91EFB7418DC7DE900393E45 /* SHArrayDataSource.h */,
 				B91EFB7518DC7DE900393E45 /* SHArrayDataSource.m */,
 				B91EFB7618DC7DE900393E45 /* SHEmptyDataSource.h */,
@@ -131,24 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				B91EFB5C18DC7D5800393E45 /* SHDataSources-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		B91EFB4918DC7D0900393E45 /* SHDataSourcesTests */ = {
-			isa = PBXGroup;
-			children = (
-				B91EFB4F18DC7D0900393E45 /* SHDataSourcesTests.m */,
-				B91EFB4A18DC7D0900393E45 /* Supporting Files */,
-			);
-			path = SHDataSourcesTests;
-			sourceTree = "<group>";
-		};
-		B91EFB4A18DC7D0900393E45 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				B91EFB4B18DC7D0900393E45 /* SHDataSourcesTests-Info.plist */,
-				B91EFB4C18DC7D0900393E45 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -173,24 +124,6 @@
 			productReference = B91EFB3018DC7D0900393E45 /* libSHDataSources.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		B91EFB3F18DC7D0900393E45 /* SHDataSourcesTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B91EFB5618DC7D0900393E45 /* Build configuration list for PBXNativeTarget "SHDataSourcesTests" */;
-			buildPhases = (
-				B91EFB3C18DC7D0900393E45 /* Sources */,
-				B91EFB3D18DC7D0900393E45 /* Frameworks */,
-				B91EFB3E18DC7D0900393E45 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B91EFB4718DC7D0900393E45 /* PBXTargetDependency */,
-			);
-			name = SHDataSourcesTests;
-			productName = SHDataSourcesTests;
-			productReference = B91EFB4018DC7D0900393E45 /* SHDataSourcesTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -213,21 +146,9 @@
 			projectRoot = "";
 			targets = (
 				B91EFB2F18DC7D0900393E45 /* SHDataSources */,
-				B91EFB3F18DC7D0900393E45 /* SHDataSourcesTests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		B91EFB3E18DC7D0900393E45 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B91EFB4E18DC7D0900393E45 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B91EFB2C18DC7D0900393E45 /* Sources */ = {
@@ -240,34 +161,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B91EFB3C18DC7D0900393E45 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B91EFB5018DC7D0900393E45 /* SHDataSourcesTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B91EFB4718DC7D0900393E45 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B91EFB2F18DC7D0900393E45 /* SHDataSources */;
-			targetProxy = B91EFB4618DC7D0900393E45 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B91EFB4C18DC7D0900393E45 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B91EFB4D18DC7D0900393E45 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B91EFB5118DC7D0900393E45 /* Debug */ = {
@@ -362,42 +256,6 @@
 			};
 			name = Release;
 		};
-		B91EFB5718DC7D0900393E45 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SHDataSources/SHDataSources-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SHDataSourcesTests/SHDataSourcesTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		B91EFB5818DC7D0900393E45 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SHDataSources/SHDataSources-Prefix.pch";
-				INFOPLIST_FILE = "SHDataSourcesTests/SHDataSourcesTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -415,15 +273,6 @@
 			buildConfigurations = (
 				B91EFB5418DC7D0900393E45 /* Debug */,
 				B91EFB5518DC7D0900393E45 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B91EFB5618DC7D0900393E45 /* Build configuration list for PBXNativeTarget "SHDataSourcesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B91EFB5718DC7D0900393E45 /* Debug */,
-				B91EFB5818DC7D0900393E45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
