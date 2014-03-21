@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SHDataSources"
-  s.version          = "0.0.2"
+  s.version          = "0.0.1"
   s.summary          = "Project-independent, block-based data sources for UITableView and UICollectionView."
   s.homepage         = "https://github.com/Blackjacx/SHDataSources"
   s.license          = 'MIT'
