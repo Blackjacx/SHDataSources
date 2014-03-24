@@ -16,7 +16,8 @@ This project supports the following types of data sources:
 * `SHEmptyDataSource` - returns no zero sections, zero rows and no cells. 
 
 You can use the array data sources as follows:
-```
+
+``` objective-c
 @interface MyCustomClass()
 [...]
 @property(nonatomic, strong)SHMutableArrayDataSource *mutableDataSource;
