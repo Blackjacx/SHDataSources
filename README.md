@@ -2,6 +2,7 @@
 
 Project-independent, block-based data sources for UITableView and UICollectionView.
 
+[![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](http://cocoadocs.org/docsets/SHDataSources)
 [![Version](http://cocoapod-badges.herokuapp.com/v/SHDataSources/badge.png)](http://cocoadocs.org/docsets/SHDataSources)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/SHDataSources/badge.png)](http://cocoadocs.org/docsets/SHDataSources)
 
