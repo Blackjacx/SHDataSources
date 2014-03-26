@@ -41,6 +41,10 @@ it simply add the following line to your Podfile:
 
     pod "SHDataSources"
 
+## ToDo's
+
+* handling of different CellIdentifiers and UITableViewCellSubtypes for certain NSIndexPaths. Sometines you want special cell types for some NSIndexPaths.
+
 ## License
 
 SHDataSources is available under the MIT license. See the LICENSE file for more info.
