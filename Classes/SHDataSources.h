@@ -6,6 +6,6 @@
 //  Copyright (c) 2014 Stefan Herold. All rights reserved.
 //
 
-#import <SHArrayDataSource.h>
-#import <SHMutableArrayDataSource.h>
-#import <SHEmptyDataSource.h>
+#import "SHItemCollection.h"
+#import "SHDataSource.h"
+#import "SHEmptyDataSource.h"

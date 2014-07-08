@@ -6,7 +6,7 @@
 
 ## Description
 
-Project-independent, block-based data sources for UITableView and UICollectionView.
+Project-independent, block-based data source for UITableView, UICollectionView and NSFetchedResultsController. This project helps to make view controllers much lighter.
 
 ## Usage
 
@@ -14,36 +14,42 @@ To run the example project; clone the repo, and run `pod install` from the Examp
 
 This project supports the following types of data sources:
 
-* `SHArrayDataSource` - immutable data source for static content
-* `SHMutableArrayDataSource` - editable, movable and offers methods for adding, inserting and deleting objects.
-* `SHEmptyDataSource` - returns no zero sections, zero rows and no cells. 
+* `SHDataSource` - immutable and mutable data source that offers add, insert, delete and reorder arbitrary items.
+* `SHEmptyDataSource` - returns zero sections, zero rows and zero cells. Can be used while waiting for the download of items.
 
-You can use the array data sources as follows:
+The intended use is as follows (see also the example included in the repository):
 
 ``` objective-c
 @interface MyCustomClass()
 [...]
-@property(nonatomic, strong)SHMutableArrayDataSource *mutableDataSource;
+@property(nonatomic, strong)SHDataSource *dataSource;
 [...]
 @end
 
-self.mutableDataSource = [[SHMutableArrayDataSource alloc] initWithItems:itemList cellIdentifier:@"CELL_ID" configureCellWithItemBlock:^(MyCustomCellObject *cell, MyCustomItemObject *item) {
-    // Configure the cell with the item
+SHItemCollection *collection = [[SHItemCollection alloc] initWithItems:@[[UIColor redColor], [UIColor greenColor], [UIColor blueColor]] @"CELL_ID"];
+
+self.dataSource = [SHDataSource dataSourceWithItemCollection:collection cellConfigurationHandler:^(id <SHDataSourcesCellDataHandler> cell, id item, NSIndexPath *indexPath) {
+[cell setData:item];
 }];
+
+self.dataSource.editable = YES;
+self.dataSource.draggingEnabled = YES;
+
+self.tableView.dataSource = self.dataSource;
 ```
 
 ## Requirements
 
 ## Installation
 
-SHDataSources is available through [CocoaPods](http://cocoapods.org), to install
-it simply add the following line to your Podfile:
+SHDataSources is available through [CocoaPods](http://cocoapods.org), to install it simply add the following line to your Podfile:
 
     pod "SHDataSources"
 
 ## ToDo's
 
-* handling of different CellIdentifiers and UITableViewCellSubtypes for certain NSIndexPaths. Sometines you want special cell types for some NSIndexPaths.
+* find a way to associate a cellIdentifier for every item in the data source
+* handling of different UITableViewCell subtypes for certain NSIndexPaths
 
 ## License
 

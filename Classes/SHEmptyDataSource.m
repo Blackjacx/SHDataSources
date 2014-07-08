@@ -1,6 +1,6 @@
 //
 //  SHEmptyDataSource.m
-//  Vault
+//  SHDataSources
 //
 //  Created by Stefan Herold on 20/03/14.
 //
@@ -9,16 +9,6 @@
 #import "SHEmptyDataSource.h"
 
 @implementation SHEmptyDataSource
-
-+ (instancetype)sharedInstance {
-	static SHEmptyDataSource *instance = nil;
-	static dispatch_once_t pred;
-	
-	dispatch_once(&pred, ^{
-		instance = [[SHEmptyDataSource alloc] init];
-	});
-	return instance;
-}
 
 #pragma mark -
 #pragma mark UITableView DataSource
