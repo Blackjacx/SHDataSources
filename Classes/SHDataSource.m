@@ -10,7 +10,6 @@
 #import "SHDataSource_Protected.h"
 #import "SHItemCollection.h"
 
-
 NSString *const SHDataSourceInsertedItemNotification = @"SHDataSourceInsertedItemNotification";
 NSString *const SHDataSourceDeletedItemNotification = @"SHDataSourceDeletedItemNotification";
 NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotification";

@@ -6,7 +6,7 @@
 
 ## Description
 
-Project-independent, block-based data source for UITableView, UICollectionView and NSFetchedResultsController. This project helps to make view controllers much lighter.
+Project-independent, block-based data source for UITableView, UICollectionView and NSFetchedResultsController. This project helps to make view controllers much lighter. It is possible to add more than one section and to provide another cell identifier for every section. This makes it possible to use different UITableViewCell subclasses in a single UITableView.
 
 ## Usage
 
@@ -38,18 +38,18 @@ self.dataSource.draggingEnabled = YES;
 self.tableView.dataSource = self.dataSource;
 ```
 
-## Requirements
-
 ## Installation
 
 SHDataSources is available through [CocoaPods](http://cocoapods.org), to install it simply add the following line to your Podfile:
 
-    pod "SHDataSources"
+pod "SHDataSources"
 
 ## ToDo's
 
+* implement the possibility to set cell identifiers on a per item basis. That makes it possible to reorder different cell sub classes arbitrarily between sections
+* extend the data source for the remaining data source methods of UITableView
 * find a way to associate a cellIdentifier for every item in the data source
-* handling of different UITableViewCell subtypes for certain NSIndexPaths
+* insert comments for all methods, classes and protocols
 
 ## License
 

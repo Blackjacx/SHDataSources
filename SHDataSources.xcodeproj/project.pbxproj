@@ -60,7 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				B95B67D9196AC1C9009C4390 /* README.md */,
-				B91EFB3518DC7D0900393E45 /* SHDataSources */,
+				B91EFB9318DC865F00393E45 /* SHDataSources.h */,
+				B91EFB3518DC7D0900393E45 /* Core */,
 				B91EFB3218DC7D0900393E45 /* Frameworks */,
 				B91EFB3118DC7D0900393E45 /* Products */,
 			);
@@ -82,10 +83,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B91EFB3518DC7D0900393E45 /* SHDataSources */ = {
+		B91EFB3518DC7D0900393E45 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B91EFB9318DC865F00393E45 /* SHDataSources.h */,
 				B91EFB9818DC886E00393E45 /* SHDataSource_Protected.h */,
 				B91EFB7418DC7DE900393E45 /* SHDataSource.h */,
 				B91EFB7518DC7DE900393E45 /* SHDataSource.m */,
@@ -95,6 +95,7 @@
 				B95B67DB196BDCF9009C4390 /* SHItemCollection.m */,
 				B91EFB3618DC7D0900393E45 /* Supporting Files */,
 			);
+			name = Core;
 			path = SHDataSources;
 			sourceTree = "<group>";
 		};
