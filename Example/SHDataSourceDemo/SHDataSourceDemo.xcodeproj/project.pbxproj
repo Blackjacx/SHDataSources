@@ -17,6 +17,7 @@
 		B95B6800196C21A4009C4390 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B95B67FE196C21A4009C4390 /* Main_iPad.storyboard */; };
 		B95B6803196C21A4009C4390 /* SHTableViewDataSourceDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B95B6802196C21A4009C4390 /* SHTableViewDataSourceDemoViewController.m */; };
 		B95B6805196C21A5009C4390 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B95B6804196C21A5009C4390 /* Images.xcassets */; };
+		B9883EEA196D93B700228E1D /* SHTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9883EE9196D93B700228E1D /* SHTextTableViewCell.m */; };
 		B9A02E4B196C2D1900008CBE /* libSHDataSources.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A02E4A196C2D1900008CBE /* libSHDataSources.a */; };
 		B9A02E4E196C337700008CBE /* SHColoredTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A02E4D196C337700008CBE /* SHColoredTableViewCell.m */; };
 		B9AAC2AB196C8211006BD64F /* SHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AAC2AA196C8211006BD64F /* SHRootViewController.m */; };
@@ -38,6 +39,8 @@
 		B95B6801196C21A4009C4390 /* SHTableViewDataSourceDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTableViewDataSourceDemoViewController.h; sourceTree = "<group>"; };
 		B95B6802196C21A4009C4390 /* SHTableViewDataSourceDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHTableViewDataSourceDemoViewController.m; sourceTree = "<group>"; };
 		B95B6804196C21A5009C4390 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B9883EE8196D93B700228E1D /* SHTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTextTableViewCell.h; sourceTree = "<group>"; };
+		B9883EE9196D93B700228E1D /* SHTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTextTableViewCell.m; sourceTree = "<group>"; };
 		B9A02E4A196C2D1900008CBE /* libSHDataSources.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSHDataSources.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/SHDataSources-bpgcpgfapolkzfdpgqgnqzkedxvy/Build/Products/Debug-iphoneos/libSHDataSources.a"; sourceTree = "<group>"; };
 		B9A02E4C196C337700008CBE /* SHColoredTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHColoredTableViewCell.h; sourceTree = "<group>"; };
 		B9A02E4D196C337700008CBE /* SHColoredTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHColoredTableViewCell.m; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 			children = (
 				B9A02E4C196C337700008CBE /* SHColoredTableViewCell.h */,
 				B9A02E4D196C337700008CBE /* SHColoredTableViewCell.m */,
+				B9883EE8196D93B700228E1D /* SHTextTableViewCell.h */,
+				B9883EE9196D93B700228E1D /* SHTextTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				B95B67F6196C21A4009C4390 /* main.m in Sources */,
 				B95B6803196C21A4009C4390 /* SHTableViewDataSourceDemoViewController.m in Sources */,
 				B9A02E4E196C337700008CBE /* SHColoredTableViewCell.m in Sources */,
+				B9883EEA196D93B700228E1D /* SHTextTableViewCell.m in Sources */,
 				B95B67FA196C21A4009C4390 /* SHAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +334,10 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SHDataSources-bpgcpgfapolkzfdpgqgnqzkedxvy/Build/Products/Debug-iphoneos",
 				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -349,6 +359,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SHDataSources-bpgcpgfapolkzfdpgqgnqzkedxvy/Build/Products/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

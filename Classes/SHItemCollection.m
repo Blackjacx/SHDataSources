@@ -7,12 +7,12 @@
 //
 
 #import "SHItemCollection.h"
+#import "NSObject+SHCellID.h"
 
 NSString *const SHDataSourceDefaultCellIdentifier = @"SHDataSourceDefaultCellIdentifier";
 
 @interface SHItemCollection ()
 @property(nonatomic, strong)NSArray *itemCollection;	// nested array
-@property(nonatomic, strong)NSArray *cellIdentifiers;	// usual array
 @end
 
 @implementation SHItemCollection
@@ -23,21 +23,21 @@ NSString *const SHDataSourceDefaultCellIdentifier = @"SHDataSourceDefaultCellIde
 
 - (instancetype)initWithItems:(NSArray*)items cellIdentifier:(NSString*)cellIdentifier {
 	if((self = [super init])) {
-		if(items && cellIdentifier) {
-			_itemCollection = @[items];
-			_cellIdentifiers = @[cellIdentifier];
-		}
+		_itemCollection = @[items];
+		[self SH_associateCellIdentifier:cellIdentifier toItems:_itemCollection];
 	}
 	return self;
 }
 
-- (void)addItems:(NSArray*)items toSection:(NSUInteger)section cellIdentifier:(NSString*)cellIdentifier {
+- (void)addItems:(NSArray*)items toSection:(NSUInteger)section withCellIdentifier:(NSString*)cellIdentifier {
 	NSUInteger row = [self rowCountForSection:section];
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
 	[self insertItems:items atIndexPath:indexPath withCellIdentifier:cellIdentifier];
 }
 
 - (void)insertItems:(NSArray*)items atIndexPath:(NSIndexPath*)indexPath withCellIdentifier:(NSString*)cellIdentifier {
+	[self SH_associateCellIdentifier:cellIdentifier toItems:items];
+	
 	NSUInteger section = indexPath.section;
 	NSUInteger row = indexPath.row;
 	NSArray * sectionItems = section < self.itemCollection.count ? self.itemCollection[section] : @[];
@@ -47,17 +47,13 @@ NSString *const SHDataSourceDefaultCellIdentifier = @"SHDataSourceDefaultCellIde
 	[updatedItems insertObjects:items atIndexes:indexSet];
 
 	NSMutableArray *mutableItemCollection = [self.itemCollection mutableCopy];
-	NSMutableArray *mutableCellIdentifiers = [self.cellIdentifiers mutableCopy];
 	
 	if(section < mutableItemCollection.count) {
 		[mutableItemCollection replaceObjectAtIndex:section withObject:updatedItems];
-		[mutableCellIdentifiers replaceObjectAtIndex:section withObject:cellIdentifier];
 	} else {
 		[mutableItemCollection addObject:updatedItems];
-		[mutableCellIdentifiers addObject:cellIdentifier];
 	}
 	self.itemCollection = [mutableItemCollection copy];
-	self.cellIdentifiers = [mutableCellIdentifiers copy];
 }
 
 - (void)removeItems:(NSArray*)items fromSection:(NSUInteger)section {
@@ -74,7 +70,9 @@ NSString *const SHDataSourceDefaultCellIdentifier = @"SHDataSourceDefaultCellIde
 }
 
 - (NSString*)cellIdentifierForIndexPath:(NSIndexPath*)indexPath {
-	return self.cellIdentifiers[indexPath.section];
+	id item = [self itemAtIndexPath:indexPath];
+	NSString *cellIdentifier = [item associatedCellIdentifer];
+	return cellIdentifier;
 }
 
 - (id)itemAtIndexPath:(NSIndexPath*)indexPath {
@@ -87,6 +85,23 @@ NSString *const SHDataSourceDefaultCellIdentifier = @"SHDataSourceDefaultCellIde
 
 - (NSInteger)rowCountForSection:(NSUInteger)section {
 	return section < self.itemCollection.count ? [self.itemCollection[section] count] : 0;
+}
+
+
+#pragma mark -
+#pragma mark Cell Identifiers (Private)
+
+
+- (void)SH_associateCellIdentifier:(NSString *)cellIdentifier toItems:(NSArray *)items {
+	for (id item in items) {
+		if ([item isKindOfClass:[NSArray class]]) {
+			for (id nestedItem in item) {
+				[nestedItem setAssociatedCellIdentifer:cellIdentifier];
+			}
+		} else {
+			[item setAssociatedCellIdentifer:cellIdentifier];
+		}
+	}
 }
 
 @end

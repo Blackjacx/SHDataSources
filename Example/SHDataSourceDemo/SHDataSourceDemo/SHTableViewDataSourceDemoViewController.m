@@ -14,6 +14,7 @@
 @end
 
 NSString *coloredCellID = @"coloredCellID";
+NSString *textCellID = @"textCellID";
 
 @implementation SHTableViewDataSourceDemoViewController
 
@@ -21,7 +22,7 @@ NSString *coloredCellID = @"coloredCellID";
 {
     [super viewDidLoad];
 	
-	SHItemCollection *collection = [[SHItemCollection alloc] initWithItems:@[[UIColor redColor], [UIColor greenColor], [UIColor blueColor]] cellIdentifier:coloredCellID];
+	SHItemCollection *collection = [[SHItemCollection alloc] initWithItems:@[@"Text Cell 1", @"Text Cell 2", @"Text Cell 3"] cellIdentifier:textCellID];
 	self.dataSource = [SHDataSource dataSourceWithItemCollection:collection cellConfigurationHandler:^(id <SHDataSourcesCellDataHandler> cell, id item, NSIndexPath *indexPath) {
 		[cell setData:item];
 	}];
@@ -60,6 +61,18 @@ NSString *coloredCellID = @"coloredCellID";
 	[self.tableView setEditing:newValue animated:YES];
 	UIBarButtonItem *newItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:newValue ?UIBarButtonSystemItemDone : UIBarButtonSystemItemEdit target:self action:_cmd];
 	self.navigationItem.rightBarButtonItem = newItem;
+}
+
+
+#pragma mark -
+#pragma mark UITableViewCell Delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSString *cellID = [self.dataSource cellIdentifierForIndexPath:indexPath];
+	if([cellID isEqualToString:textCellID]) {
+		return 88.0f;
+	}
+	return 44.0f;
 }
 
 

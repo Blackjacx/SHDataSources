@@ -3,11 +3,12 @@
 //  SHDataSources
 //
 //  Created by Stefan Herold on 20/03/14.
-//
+//  Copyright (c) 2014 Stefan Herold. All rights reserved.
 //
 
 #import "SHDataSource.h"
 #import "SHDataSource_Protected.h"
+#import "NSObject+SHCellID.h"
 #import "SHItemCollection.h"
 
 NSString *const SHDataSourceInsertedItemNotification = @"SHDataSourceInsertedItemNotification";
@@ -41,6 +42,9 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 	return [self.itemCollection itemAtIndexPath:indexPath];
 }
 
+- (NSString *)cellIdentifierForIndexPath:(NSIndexPath *)indexPath {
+	return [self.itemCollection cellIdentifierForIndexPath:indexPath];
+}
 
 #pragma mark -
 #pragma mark UITableView DataSource
@@ -56,9 +60,13 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	id item = [self itemAtIndexPath:indexPath];
-	NSString *cellID = [self.itemCollection cellIdentifierForIndexPath:indexPath];
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-	self.cellConfigurationHandler(cell, item, indexPath);
+	UITableViewCell *cell = nil;
+	
+	if(item) {
+		NSString *cellID = [item associatedCellIdentifer];
+		cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+		self.cellConfigurationHandler(cell, item, indexPath);
+	}
 	return cell;
 }
 
@@ -96,7 +104,7 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-	
+	NSLog(@"Move from (%ld, %ld) to (%ld, %ld)", (long)sourceIndexPath.section, (long)sourceIndexPath.row, (long)destinationIndexPath.section, (long)destinationIndexPath.row);
 	id moveItem = [self.itemCollection itemAtIndexPath:sourceIndexPath];
 	NSString *cellID = [self.itemCollection cellIdentifierForIndexPath:sourceIndexPath];
 	[self removeItems:@[moveItem] fromSection:sourceIndexPath.section];
@@ -141,7 +149,7 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 - (void)addItems:(NSArray*)items toSection:(NSUInteger)section cellIdentifier:(NSString*)cellIdentifier {
 	NSAssert(self.editable, @"Data source must be editable to perform this selector!");
 	if(!self.isEditable) { return; }
-	[self.itemCollection addItems:items toSection:section cellIdentifier:cellIdentifier];
+	[self.itemCollection addItems:items toSection:section withCellIdentifier:cellIdentifier];
 }
 
 - (void)insertItems:(NSArray*)items atIndexPath:(NSIndexPath*)indexPath withCellIdentifier:(NSString*)cellIdentifier {

@@ -46,10 +46,11 @@ pod "SHDataSources"
 
 ## ToDo's
 
-* implement the possibility to set cell identifiers on a per item basis. That makes it possible to reorder different cell sub classes arbitrarily between sections
+* use cocoa pods to include the lib in the example project
 * extend the data source for the remaining data source methods of UITableView
-* find a way to associate a cellIdentifier for every item in the data source
 * insert comments for all methods, classes and protocols
+* reinclude support for UICollectionView
+* implement data source for NSFetchedResultsController
 
 ## License
 

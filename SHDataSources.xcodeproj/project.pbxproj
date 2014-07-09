@@ -15,6 +15,10 @@
 		B95B682B196C2922009C4390 /* SHDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = B91EFB7418DC7DE900393E45 /* SHDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B95B682C196C2922009C4390 /* SHEmptyDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = B91EFB7618DC7DE900393E45 /* SHEmptyDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B95B682D196C2922009C4390 /* SHItemCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = B95B67DA196BDCF9009C4390 /* SHItemCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B9883EE6196D911D00228E1D /* NSObject+SHCellID.h in Headers */ = {isa = PBXBuildFile; fileRef = B9883EE4196D911D00228E1D /* NSObject+SHCellID.h */; };
+		B9883EE7196D911D00228E1D /* NSObject+SHCellID.m in Sources */ = {isa = PBXBuildFile; fileRef = B9883EE5196D911D00228E1D /* NSObject+SHCellID.m */; };
+		B9EC2D94196CA4A10095477F /* SHDataSource_Protected.h in Headers */ = {isa = PBXBuildFile; fileRef = B91EFB9818DC886E00393E45 /* SHDataSource_Protected.h */; };
+		B9EC2D96196CA5500095477F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9EC2D95196CA5500095477F /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,6 +46,9 @@
 		B95B67D9196AC1C9009C4390 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		B95B67DA196BDCF9009C4390 /* SHItemCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHItemCollection.h; path = Classes/SHItemCollection.h; sourceTree = SOURCE_ROOT; };
 		B95B67DB196BDCF9009C4390 /* SHItemCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHItemCollection.m; path = Classes/SHItemCollection.m; sourceTree = SOURCE_ROOT; };
+		B9883EE4196D911D00228E1D /* NSObject+SHCellID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SHCellID.h"; path = "Classes/NSObject+SHCellID.h"; sourceTree = SOURCE_ROOT; };
+		B9883EE5196D911D00228E1D /* NSObject+SHCellID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SHCellID.m"; path = "Classes/NSObject+SHCellID.m"; sourceTree = SOURCE_ROOT; };
+		B9EC2D95196CA5500095477F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9EC2D96196CA5500095477F /* UIKit.framework in Frameworks */,
 				B91EFB3418DC7D0900393E45 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +86,7 @@
 		B91EFB3218DC7D0900393E45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B9EC2D95196CA5500095477F /* UIKit.framework */,
 				B91EFB3318DC7D0900393E45 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -87,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				B91EFB9818DC886E00393E45 /* SHDataSource_Protected.h */,
+				B9883EE4196D911D00228E1D /* NSObject+SHCellID.h */,
+				B9883EE5196D911D00228E1D /* NSObject+SHCellID.m */,
 				B91EFB7418DC7DE900393E45 /* SHDataSource.h */,
 				B91EFB7518DC7DE900393E45 /* SHDataSource.m */,
 				B91EFB7618DC7DE900393E45 /* SHEmptyDataSource.h */,
@@ -114,10 +125,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B95B682A196C2922009C4390 /* SHDataSources.h in Headers */,
+				B9883EE6196D911D00228E1D /* NSObject+SHCellID.h in Headers */,
 				B95B682B196C2922009C4390 /* SHDataSource.h in Headers */,
+				B95B682A196C2922009C4390 /* SHDataSources.h in Headers */,
 				B95B682C196C2922009C4390 /* SHEmptyDataSource.h in Headers */,
 				B95B682D196C2922009C4390 /* SHItemCollection.h in Headers */,
+				B9EC2D94196CA4A10095477F /* SHDataSource_Protected.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B91EFB7A18DC7DE900393E45 /* SHDataSource.m in Sources */,
+				B9883EE7196D911D00228E1D /* NSObject+SHCellID.m in Sources */,
 				B91EFB7B18DC7DE900393E45 /* SHEmptyDataSource.m in Sources */,
 				B95B67DC196BDCF9009C4390 /* SHItemCollection.m in Sources */,
 			);
