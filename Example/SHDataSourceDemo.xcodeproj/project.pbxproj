@@ -327,7 +327,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					../../Classes,
+					../Classes,
 				);
 				INFOPLIST_FILE = "SHDataSourceDemo/SHDataSourceDemo-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -353,7 +353,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					../../Classes,
+					../Classes,
 				);
 				INFOPLIST_FILE = "SHDataSourceDemo/SHDataSourceDemo-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
