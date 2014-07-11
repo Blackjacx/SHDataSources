@@ -10,5 +10,5 @@
 
 @interface SHDataSource ()
 @property(nonatomic, strong)SHItemCollection *itemCollection;
-@property(nonatomic, strong)SHDataSourceCellConfigurationHandler cellConfigurationHandler;
+@property(nonatomic, strong)SHDataSourceViewConfigurationHandler cellConfigurationHandler;
 @end

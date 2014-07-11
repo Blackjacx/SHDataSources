@@ -17,17 +17,12 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 
 @implementation SHDataSource
 
-- (id)init {
-	[self doesNotRecognizeSelector:_cmd];
-	return nil;
-}
-
-+ (instancetype)dataSourceWithItemCollection:(SHItemCollection*)itemCollection cellConfigurationHandler:(SHDataSourceCellConfigurationHandler)cellConfigurationHandler {
++ (instancetype)dataSourceWithItemCollection:(SHItemCollection*)itemCollection cellConfigurationHandler:(SHDataSourceViewConfigurationHandler)cellConfigurationHandler {
 	SHDataSource *instance = [[SHDataSource alloc] initWithItemCollection:itemCollection cellConfigurationHandler:cellConfigurationHandler];
 	return instance;
 }
 
-- (instancetype)initWithItemCollection:(SHItemCollection*)itemCollection cellConfigurationHandler:(SHDataSourceCellConfigurationHandler)cellConfigurationHandler {
+- (instancetype)initWithItemCollection:(SHItemCollection*)itemCollection cellConfigurationHandler:(SHDataSourceViewConfigurationHandler)cellConfigurationHandler {
 	self = [super init];
 	if (self) {
 		_itemCollection = itemCollection;
@@ -38,6 +33,56 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 	return self;
 }
 
+- (id)init {
+	[self doesNotRecognizeSelector:_cmd];
+	return nil;
+}
+
+
+#pragma mark -
+#pragma mark Notifications (Private)
+
+
+- (void)postInsertedItemNotification {
+	[[NSNotificationCenter defaultCenter] postNotificationName:SHDataSourceInsertedItemNotification object:self];
+}
+
+- (void)postDeletedItemNotification {
+	[[NSNotificationCenter defaultCenter] postNotificationName:SHDataSourceDeletedItemNotification object:self];
+}
+
+- (void)postMovedItemNotification {
+	[[NSNotificationCenter defaultCenter] postNotificationName:SHDataSourceMovedItemNotification object:self];
+}
+
+
+#pragma mark -
+#pragma mark DataSourceModifiers
+
+
+- (void)addItems:(NSArray*)items toSection:(NSUInteger)section cellIdentifier:(NSString*)cellIdentifier {
+	NSAssert(self.editable, @"Data source must be editable to perform this selector!");
+	if(!self.isEditable) { return; }
+	[self.itemCollection addItems:items toSection:section withCellIdentifier:cellIdentifier];
+}
+
+- (void)insertItems:(NSArray*)items atIndexPath:(NSIndexPath*)indexPath withCellIdentifier:(NSString*)cellIdentifier {
+	NSAssert(self.editable, @"Data source must be editable to perform this selector!");
+	if(!self.isEditable) { return; }
+	[self.itemCollection insertItems:items atIndexPath:indexPath withCellIdentifier:cellIdentifier];
+}
+
+- (void)removeItems:(NSArray*)items fromSection:(NSUInteger)section {
+	NSAssert(self.editable, @"Data source must be editable to perform this selector!");
+	if(!self.isEditable) { return; }
+	[self.itemCollection removeItems:items fromSection:section];
+}
+
+
+#pragma mark -
+#pragma mark Getting Properties of the Data Source
+
+
 - (id)itemAtIndexPath:(NSIndexPath*)indexPath {
 	return [self.itemCollection itemAtIndexPath:indexPath];
 }
@@ -45,6 +90,7 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 - (NSString *)cellIdentifierForIndexPath:(NSIndexPath *)indexPath {
 	return [self.itemCollection cellIdentifierForIndexPath:indexPath];
 }
+
 
 #pragma mark -
 #pragma mark UITableView DataSource
@@ -59,10 +105,9 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	id item = [self itemAtIndexPath:indexPath];
 	UITableViewCell *cell = nil;
-	
-	if(item) {
+	if(_cellConfigurationHandler) {
+		id item = [self itemAtIndexPath:indexPath];
 		NSString *cellID = [item associatedCellIdentifer];
 		cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
 		self.cellConfigurationHandler(cell, item, indexPath);
@@ -104,7 +149,9 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+	
 	NSLog(@"Move from (%ld, %ld) to (%ld, %ld)", (long)sourceIndexPath.section, (long)sourceIndexPath.row, (long)destinationIndexPath.section, (long)destinationIndexPath.row);
+	
 	id moveItem = [self.itemCollection itemAtIndexPath:sourceIndexPath];
 	NSString *cellID = [self.itemCollection cellIdentifierForIndexPath:sourceIndexPath];
 	[self removeItems:@[moveItem] fromSection:sourceIndexPath.section];
@@ -126,66 +173,37 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 
 
 #pragma mark -
-#pragma mark Notifications
-
-
-- (void)postInsertedItemNotification {
-	[[NSNotificationCenter defaultCenter] postNotificationName:SHDataSourceInsertedItemNotification object:self];
-}
-
-- (void)postDeletedItemNotification {
-	[[NSNotificationCenter defaultCenter] postNotificationName:SHDataSourceDeletedItemNotification object:self];
-}
-
-- (void)postMovedItemNotification {
-	[[NSNotificationCenter defaultCenter] postNotificationName:SHDataSourceMovedItemNotification object:self];
-}
-
-
-#pragma mark -
-#pragma mark DataSourceModifiers
-
-
-- (void)addItems:(NSArray*)items toSection:(NSUInteger)section cellIdentifier:(NSString*)cellIdentifier {
-	NSAssert(self.editable, @"Data source must be editable to perform this selector!");
-	if(!self.isEditable) { return; }
-	[self.itemCollection addItems:items toSection:section withCellIdentifier:cellIdentifier];
-}
-
-- (void)insertItems:(NSArray*)items atIndexPath:(NSIndexPath*)indexPath withCellIdentifier:(NSString*)cellIdentifier {
-	NSAssert(self.editable, @"Data source must be editable to perform this selector!");
-	if(!self.isEditable) { return; }
-	[self.itemCollection insertItems:items atIndexPath:indexPath withCellIdentifier:cellIdentifier];
-}
-
-- (void)removeItems:(NSArray*)items fromSection:(NSUInteger)section {
-	NSAssert(self.editable, @"Data source must be editable to perform this selector!");
-	if(!self.isEditable) { return; }
-	[self.itemCollection removeItems:items fromSection:section];
-}
-
-
-#pragma mark -
 #pragma mark UICollectionView DataSource
 
 
-//- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//	id item = [self itemAtIndexPath:indexPath];
-//	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.cellIdentifier forIndexPath:indexPath];
-//	self.configureCellWithItemBlock(cell, item);
-//	return cell;
-//}
-//
-//- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-//	return self.items.count;
-//}
-//
-//- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-//	return 1;
-//}
-//
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-//	return nil;
-//}
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+	return [self.itemCollection sectionCount];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+	return [self.itemCollection rowCountForSection:section];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+	UICollectionViewCell *cell = nil;
+	if(_cellConfigurationHandler) {
+		id item = [self itemAtIndexPath:indexPath];
+		NSString *cellID = [item associatedCellIdentifer];
+		cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+		self.cellConfigurationHandler(cell, item, indexPath);
+	}
+	return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+	UICollectionReusableView *view = nil;
+	if(_supplementaryElementConfigurationHandler) {
+		id item = [self itemAtIndexPath:indexPath];
+		NSString *cellID = [item associatedCellIdentifer];
+		view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:cellID forIndexPath:indexPath];
+		self.supplementaryElementConfigurationHandler(view, item, indexPath);
+	}
+	return view;
+}
 
 @end

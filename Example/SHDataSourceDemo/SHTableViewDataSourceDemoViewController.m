@@ -31,9 +31,9 @@ NSString *textCellID = @"textCellID";
 	
 	self.tableView.dataSource = self.dataSource;
 	
-	[self performSelector:@selector(addItemsToUltraHighSection) withObject:nil afterDelay:3.0f];
-	[self performSelector:@selector(addItemsToFirstSection) withObject:nil afterDelay:6.0f];
-	[self performSelector:@selector(insertItemsAtTheBeginningOfSectionOne) withObject:nil afterDelay:9.0f];
+	[self performSelector:@selector(addItemsToUltraHighSection) withObject:nil afterDelay:0.0f];
+	[self performSelector:@selector(addItemsToFirstSection) withObject:nil afterDelay:0.0f];
+	[self performSelector:@selector(insertItemsAtTheBeginningOfSectionOne) withObject:nil afterDelay:0.0f];
 }
 
 - (void)addItemsToUltraHighSection {

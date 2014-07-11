@@ -10,7 +10,7 @@
 
 @class SHItemCollection;
 
-typedef void(^SHDataSourceCellConfigurationHandler)(id cell, id item, NSIndexPath *indexPath);
+typedef void(^SHDataSourceViewConfigurationHandler)(id cell, id item, NSIndexPath *indexPath);
 
 FOUNDATION_EXPORT NSString *const SHDataSourceInsertedItemNotification;
 FOUNDATION_EXPORT NSString *const SHDataSourceDeletedItemNotification;
@@ -20,12 +20,14 @@ FOUNDATION_EXPORT NSString *const SHDataSourceMovedItemNotification;
 - (void)setData:(id)data;
 @end
 
-@interface SHDataSource : NSObject <UITableViewDataSource/*, UICollectionViewDataSource*/>
+@interface SHDataSource : NSObject <UITableViewDataSource, UICollectionViewDataSource>
 @property(nonatomic, assign, getter=isEditable)BOOL editable;
 @property(nonatomic, assign, getter=isDraggingEnabled)BOOL draggingEnabled;
+@property(nonatomic, strong)SHDataSourceViewConfigurationHandler supplementaryElementConfigurationHandler;
 
-+ (instancetype)dataSourceWithItemCollection:(SHItemCollection*)itemCollection cellConfigurationHandler:(SHDataSourceCellConfigurationHandler)cellConfigurationHandler __attribute((nonnull(1, 2)));
-- (instancetype)initWithItemCollection:(SHItemCollection*)itemCollection cellConfigurationHandler:(SHDataSourceCellConfigurationHandler)cellConfigurationHandler __attribute((nonnull(1, 2)));
++ (instancetype)dataSourceWithItemCollection:(SHItemCollection*)itemCollection cellConfigurationHandler:(SHDataSourceViewConfigurationHandler)cellConfigurationHandler __attribute((nonnull(1, 2)));
+- (instancetype)initWithItemCollection:(SHItemCollection*)itemCollection cellConfigurationHandler:(SHDataSourceViewConfigurationHandler)cellConfigurationHandler __attribute((nonnull(1, 2)));
+
 - (instancetype)init __attribute__((unavailable("Please use the custom initializer(s)!")));
 
 - (id)itemAtIndexPath:(NSIndexPath*)indexPath;
