@@ -1,6 +1,6 @@
 # SHDataSources
 
-[![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](https://github.com/Blackjacx/SHDataSources/blob/master/LICENSE)
+[![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](http://opensource.org/licenses/MIT)
 [![Version](http://cocoapod-badges.herokuapp.com/v/SHDataSources/badge.png)](http://cocoadocs.org/docsets/SHDataSources)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/SHDataSources/badge.png)](http://cocoadocs.org/docsets/SHDataSources)
 
@@ -53,5 +53,5 @@ SHDataSources is available through [CocoaPods](http://cocoapods.org), to install
 
 ## License
 
-SHDataSources is available under the MIT license. See the [LICENSE](https://github.com/Blackjacx/SHDataSources/blob/master/LICENSE) file for more info.
+SHDataSources is available under the MIT license. See the [LICENSE](http://opensource.org/licenses/MIT) file for more info.
 
