@@ -3,7 +3,7 @@
 
 target "SHDataSourceDemo" do
 
-
+pod 'SHDataSources', :head #YOLO
 
 end
 
