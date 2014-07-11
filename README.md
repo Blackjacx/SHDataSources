@@ -1,8 +1,8 @@
 # SHDataSources
 
-[![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](https://github.com/Blackjacx/SHDataSources/blob/master/LICENSE) &nbsp;
-![Version](http://cocoapod-badges.herokuapp.com/v/SHDataSources/badge.png) &nbsp;
-![Platform](http://cocoapod-badges.herokuapp.com/p/SHDataSources/badge.png) &nbsp;
+[![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](http://opensource.org/licenses/MIT)
+[![Version](http://cocoapod-badges.herokuapp.com/v/SHDataSources/badge.png)](http://cocoadocs.org/docsets/SHDataSources)
+[![Platform](http://cocoapod-badges.herokuapp.com/p/SHDataSources/badge.png)](http://cocoadocs.org/docsets/SHDataSources)
 
 ## Description
 
@@ -48,11 +48,10 @@ SHDataSources is available through [CocoaPods](http://cocoapods.org), to install
 
 * make an example for UICollectionView
 * implement data source for NSFetchedResultsController
-* use cocoa pods to include the lib in the example project
 * extend the data source for the remaining data source methods of UITableView
 * insert comments for all methods, classes and protocols
 
 ## License
 
-SHDataSources is available under the MIT license. See the LICENSE file for more info.
+SHDataSources is available under the MIT license. See the [LICENSE](http://opensource.org/licenses/MIT) file for more info.
 
