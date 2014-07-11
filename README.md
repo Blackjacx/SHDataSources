@@ -1,8 +1,8 @@
 # SHDataSources
 
-[![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](https://github.com/Blackjacx/SHDataSources/blob/master/LICENSE) &nbsp;
-![Version](http://cocoapod-badges.herokuapp.com/v/SHDataSources/badge.png) &nbsp;
-![Platform](http://cocoapod-badges.herokuapp.com/p/SHDataSources/badge.png) &nbsp;
+[![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)](https://github.com/Blackjacx/SHDataSources/blob/master/LICENSE)
+[![Version](http://cocoapod-badges.herokuapp.com/v/SHDataSources/badge.png)](http://cocoadocs.org/docsets/SHDataSources)
+[![Platform](http://cocoapod-badges.herokuapp.com/p/SHDataSources/badge.png)](http://cocoadocs.org/docsets/SHDataSources)
 
 ## Description
 
