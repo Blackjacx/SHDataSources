@@ -10,7 +10,7 @@ Project-independent, block-based data source for UITableView, UICollectionView a
 
 ## Usage
 
-To run the example project; clone the repo, and run `pod install` from the Example directory first.
+To run the example project; clone the repo, and run `pod install` from the Example directory first or just use the SHDataSources.xcworkspace file and build the SHDataSourceDemo scheme.
 
 This project supports the following types of data sources:
 

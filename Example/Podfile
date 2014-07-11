@@ -1,7 +1,9 @@
-pod "SHDataSources", :path => "../SHDataSources.podspec"
+# Uncomment this line to define a global platform for your project
+# platform :ios, "6.0"
 
-target "Demo" do
+target "SHDataSourceDemo" do
+
+
+
 end
 
-target "DemoTests" do
-end
