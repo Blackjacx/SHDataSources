@@ -46,7 +46,6 @@ SHDataSources is available through [CocoaPods](http://cocoapods.org), to install
 
 ## ToDo's
 
-* use cocoa pods to include the lib in the example project
 * extend the data source for the remaining data source methods of UITableView
 * insert comments for all methods, classes and protocols
 * reinclude support for UICollectionView
