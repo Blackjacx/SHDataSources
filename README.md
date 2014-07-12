@@ -17,7 +17,7 @@ This project supports the following types of data sources:
 * `SHDataSource` - immutable and mutable data source that offers add, insert, delete and reorder arbitrary items.
 * `SHEmptyDataSource` - returns zero sections, zero rows and zero cells. Can be used while waiting for the download of items.
 
-The intended use is as follows (see also the example included in the repository):
+The intended use is as follows:
 
 ``` objective-c
 @interface MyCustomClass()
@@ -37,6 +37,8 @@ self.dataSource.draggingEnabled = YES;
 
 self.tableView.dataSource = self.dataSource;
 ```
+
+For a detailled example see the demo project included in the repository.
 
 ## Installation
 
