@@ -55,5 +55,5 @@ SHDataSources is available through [CocoaPods](http://cocoapods.org), to install
 
 ## License
 
-SHDataSources is available under the MIT license. See the [LICENSE](http://opensource.org/licenses/MIT) file for more info.
+SHDataSources is available under the MIT license. See the [LICENSE](http://opensource.org/licenses/MIT) for more info.
 
