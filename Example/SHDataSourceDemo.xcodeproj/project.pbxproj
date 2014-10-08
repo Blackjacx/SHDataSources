@@ -21,6 +21,8 @@
 		B9A02E4B196C2D1900008CBE /* libSHDataSources.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A02E4A196C2D1900008CBE /* libSHDataSources.a */; };
 		B9A02E4E196C337700008CBE /* SHColoredTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A02E4D196C337700008CBE /* SHColoredTableViewCell.m */; };
 		B9AAC2AB196C8211006BD64F /* SHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AAC2AA196C8211006BD64F /* SHRootViewController.m */; };
+		B9AB9B6A19E579CF00C9EFF4 /* SHFetchedResultsControllerDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AB9B6919E579CF00C9EFF4 /* SHFetchedResultsControllerDemoViewController.m */; };
+		B9AB9B7019E58DE900C9EFF4 /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9AB9B6E19E58DE900C9EFF4 /* DataBase.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,9 @@
 		B9A02E4D196C337700008CBE /* SHColoredTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHColoredTableViewCell.m; sourceTree = "<group>"; };
 		B9AAC2A9196C8211006BD64F /* SHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRootViewController.h; sourceTree = "<group>"; };
 		B9AAC2AA196C8211006BD64F /* SHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRootViewController.m; sourceTree = "<group>"; };
+		B9AB9B6819E579CF00C9EFF4 /* SHFetchedResultsControllerDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHFetchedResultsControllerDemoViewController.h; sourceTree = "<group>"; };
+		B9AB9B6919E579CF00C9EFF4 /* SHFetchedResultsControllerDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHFetchedResultsControllerDemoViewController.m; sourceTree = "<group>"; };
+		B9AB9B6F19E58DE900C9EFF4 /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +101,7 @@
 			children = (
 				B95B67F8196C21A4009C4390 /* SHAppDelegate.h */,
 				B95B67F9196C21A4009C4390 /* SHAppDelegate.m */,
+				B9AB9B6E19E58DE900C9EFF4 /* DataBase.xcdatamodeld */,
 				B9AAC2A8196C7C74006BD64F /* Demo View Controllers */,
 				B9AAC2AC196C88DD006BD64F /* Views */,
 				B95B67FB196C21A4009C4390 /* Main_iPhone.storyboard */,
@@ -124,6 +130,8 @@
 				B9AAC2AA196C8211006BD64F /* SHRootViewController.m */,
 				B95B6801196C21A4009C4390 /* SHTableViewDataSourceDemoViewController.h */,
 				B95B6802196C21A4009C4390 /* SHTableViewDataSourceDemoViewController.m */,
+				B9AB9B6819E579CF00C9EFF4 /* SHFetchedResultsControllerDemoViewController.h */,
+				B9AB9B6919E579CF00C9EFF4 /* SHFetchedResultsControllerDemoViewController.m */,
 			);
 			name = "Demo View Controllers";
 			sourceTree = "<group>";
@@ -206,7 +214,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9AB9B6A19E579CF00C9EFF4 /* SHFetchedResultsControllerDemoViewController.m in Sources */,
 				B9AAC2AB196C8211006BD64F /* SHRootViewController.m in Sources */,
+				B9AB9B7019E58DE900C9EFF4 /* DataBase.xcdatamodeld in Sources */,
 				B95B67F6196C21A4009C4390 /* main.m in Sources */,
 				B95B6803196C21A4009C4390 /* SHTableViewDataSourceDemoViewController.m in Sources */,
 				B9A02E4E196C337700008CBE /* SHColoredTableViewCell.m in Sources */,
@@ -391,6 +401,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B9AB9B6E19E58DE900C9EFF4 /* DataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B9AB9B6F19E58DE900C9EFF4 /* DataBase.xcdatamodel */,
+			);
+			currentVersion = B9AB9B6F19E58DE900C9EFF4 /* DataBase.xcdatamodel */;
+			path = DataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B95B67DE196C21A4009C4390 /* Project object */;
 }

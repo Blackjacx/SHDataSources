@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SHFetchedResultsControllerDemoViewController : UIViewController
+@interface SHFetchedResultsControllerDemoViewController : UIViewController <SHItemCollectionFetchedResultsControllerDelegate>
 
 @end

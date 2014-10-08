@@ -48,10 +48,14 @@ SHDataSources is available through [CocoaPods](http://cocoapods.org), to install
 
 ## ToDo's
 
-* make an example for UICollectionView
-* implement data source for NSFetchedResultsController
-* extend the data source for the remaining data source methods of UITableView
-* insert comments for all methods, classes and protocols
+* add a core data model and use this in the demo view controller. 
+* Be shure to delete the contents of the DB on every app start to start the demo from the beginning all the time. 
+* Implement create, delete and insert using core data in ItemCollection
+* ...
+* make an example for UICollectionView.
+* implement data source for NSFetchedResultsController.
+* extend the data source for the remaining data source methods of UITableView.
+* insert comments for all methods, classes and protocols.
 
 ## License
 

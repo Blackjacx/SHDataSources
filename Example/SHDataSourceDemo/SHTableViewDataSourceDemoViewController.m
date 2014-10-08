@@ -13,10 +13,16 @@
 @property (strong, nonatomic) SHDataSource * dataSource;
 @end
 
-NSString *coloredCellID = @"coloredCellID";
-NSString *textCellID = @"textCellID";
+static NSString *coloredCellID = @"coloredCellID";
+static NSString *textCellID = @"textCellID";
 
 @implementation SHTableViewDataSourceDemoViewController
+
+
+// =================================================================================================
+#pragma mark - Loading
+// =================================================================================================
+
 
 - (void)viewDidLoad
 {
@@ -52,8 +58,9 @@ NSString *textCellID = @"textCellID";
 }
 
 
-#pragma mark -
-#pragma mark Actions
+// =================================================================================================
+#pragma mark - Actions
+// =================================================================================================
 
 
 - (IBAction)onEdit:(id)sender {
@@ -64,8 +71,10 @@ NSString *textCellID = @"textCellID";
 }
 
 
-#pragma mark -
-#pragma mark UITableViewCell Delegate
+// =================================================================================================
+#pragma mark - UITableViewCell Delegate
+// =================================================================================================
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSString *cellID = [self.dataSource cellIdentifierForIndexPath:indexPath];

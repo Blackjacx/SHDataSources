@@ -7,10 +7,34 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface SHItemCollection : NSObject
+
+// =================================================================================================
+#pragma mark - Delegate Protocol for the Fetched Results Controller
+// =================================================================================================
+
+
+@protocol SHItemCollectionFetchedResultsControllerDelegate <NSObject>
+
+- (void)fetchedResultsController:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath;
+- (void)fetchedResultsControllerWillChangeContent:(NSFetchedResultsController*)controller;
+- (void)fetchedResultsControllerDidChangeContent:(NSFetchedResultsController*)controller;
+
+@end
+
+
+// =================================================================================================
+#pragma mark - SHItemCollection Public Interface
+// =================================================================================================
+
+
+@interface SHItemCollection : NSObject <NSFetchedResultsControllerDelegate>
+
+@property(nonatomic, weak)id<SHItemCollectionFetchedResultsControllerDelegate>fetchedResultsControllerDelegate;
 
 - (instancetype)initWithItems:(NSArray*)items cellIdentifier:(NSString*)cellIdentifier;
+- (instancetype)initWithFetchedResultsController:(NSFetchedResultsController*)fetchedResultsController cellIdentifier:(NSString*)cellIdentifier;
 
 - (void)addItems:(NSArray*)items toSection:(NSUInteger)section withCellIdentifier:(NSString*)cellIdentifier __attribute((nonnull(1, 3)));
 - (void)insertItems:(NSArray*)items atIndexPath:(NSIndexPath*)indexPath withCellIdentifier:(NSString*)cellIdentifier __attribute((nonnull(1, 2, 3)));

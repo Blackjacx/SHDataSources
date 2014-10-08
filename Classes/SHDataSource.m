@@ -23,24 +23,25 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 }
 
 - (instancetype)initWithItemCollection:(SHItemCollection*)itemCollection cellConfigurationHandler:(SHDataSourceViewConfigurationHandler)cellConfigurationHandler {
-	self = [super init];
-	if (self) {
+	if (self = [self init]) {
 		_itemCollection = itemCollection;
 		_cellConfigurationHandler = cellConfigurationHandler;
+	}
+	return self;
+}
+
+- (instancetype)init {
+	if (self = [super init]) {
 		_editable = NO;
 		_draggingEnabled = NO;
 	}
 	return self;
 }
 
-- (id)init {
-	[self doesNotRecognizeSelector:_cmd];
-	return nil;
-}
 
-
-#pragma mark -
-#pragma mark Notifications (Private)
+// =================================================================================================
+#pragma mark - Notifications (Private)
+// =================================================================================================
 
 
 - (void)postInsertedItemNotification {
@@ -56,8 +57,9 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 }
 
 
-#pragma mark -
-#pragma mark DataSourceModifiers
+// =================================================================================================
+#pragma mark - DataSourceModifiers
+// =================================================================================================
 
 
 - (void)addItems:(NSArray*)items toSection:(NSUInteger)section cellIdentifier:(NSString*)cellIdentifier {
@@ -79,8 +81,9 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 }
 
 
-#pragma mark -
-#pragma mark Getting Properties of the Data Source
+// =================================================================================================
+#pragma mark - Getting Properties of the Data Source
+// =================================================================================================
 
 
 - (id)itemAtIndexPath:(NSIndexPath*)indexPath {
@@ -92,8 +95,9 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 }
 
 
-#pragma mark -
-#pragma mark UITableView DataSource
+// =================================================================================================
+#pragma mark - UITableView DataSource
+// =================================================================================================
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -140,7 +144,6 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 		case UITableViewCellEditingStyleNone: {
 		}
 			break;
-			
 	}
 }
 
@@ -172,8 +175,10 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 //}
 
 
-#pragma mark -
-#pragma mark UICollectionView DataSource
+
+// =================================================================================================
+#pragma mark - UICollectionView DataSource
+// =================================================================================================
 
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -205,5 +210,6 @@ NSString *const SHDataSourceMovedItemNotification = @"SHDataSourceMovedItemNotif
 	}
 	return view;
 }
+
 
 @end

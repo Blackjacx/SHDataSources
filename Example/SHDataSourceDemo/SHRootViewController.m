@@ -18,6 +18,12 @@ NSString *SHRootViewControllerSIDTableViewDataSource = @"SHRootViewControllerSID
 
 @implementation SHRootViewController
 
+
+// =================================================================================================
+#pragma mark - Loading
+// =================================================================================================
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
@@ -35,7 +41,9 @@ NSString *SHRootViewControllerSIDTableViewDataSource = @"SHRootViewControllerSID
 }
 
 
+// =================================================================================================
 #pragma mark - Navigation
+// =================================================================================================
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -45,8 +53,9 @@ NSString *SHRootViewControllerSIDTableViewDataSource = @"SHRootViewControllerSID
 }
 
 
-#pragma mark -
-#pragma mark UITableView - Delegate
+// =================================================================================================
+#pragma mark - UITableView Delegate
+// =================================================================================================
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

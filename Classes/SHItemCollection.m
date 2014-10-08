@@ -13,9 +13,16 @@ NSString *const SHDataSourceDefaultCellIdentifier = @"SHDataSourceDefaultCellIde
 
 @interface SHItemCollection ()
 @property(nonatomic, strong)NSArray *itemCollection;	// nested array
+@property(nonatomic, strong)NSFetchedResultsController *fetchedResultsController;
 @end
 
 @implementation SHItemCollection
+
+
+// =================================================================================================
+#pragma mark - Initialization
+// =================================================================================================
+
 
 - (id)init {
 	return [self initWithItems:@[] cellIdentifier:SHDataSourceDefaultCellIdentifier];
@@ -28,6 +35,22 @@ NSString *const SHDataSourceDefaultCellIdentifier = @"SHDataSourceDefaultCellIde
 	}
 	return self;
 }
+
+- (instancetype)initWithFetchedResultsController:(NSFetchedResultsController*)fetchedResultsController cellIdentifier:(NSString*)cellIdentifier {
+	if((self = [super init])) {
+		_fetchedResultsController = fetchedResultsController;
+		_fetchedResultsController.delegate = self;
+		[_fetchedResultsController performFetch:NULL];
+		[self SH_associateCellIdentifier:cellIdentifier toItems:_itemCollection];
+	}
+	return self;
+}
+
+
+// =================================================================================================
+#pragma mark - Modifying Data Source
+// =================================================================================================
+
 
 - (void)addItems:(NSArray*)items toSection:(NSUInteger)section withCellIdentifier:(NSString*)cellIdentifier {
 	NSUInteger row = [self rowCountForSection:section];
@@ -69,6 +92,12 @@ NSString *const SHDataSourceDefaultCellIdentifier = @"SHDataSourceDefaultCellIde
 	self.itemCollection = [mutableItemCollection copy];
 }
 
+
+// =================================================================================================
+#pragma mark - Getting infomration from the Collection
+// =================================================================================================
+
+
 - (NSString*)cellIdentifierForIndexPath:(NSIndexPath*)indexPath {
 	id item = [self itemAtIndexPath:indexPath];
 	NSString *cellIdentifier = [item associatedCellIdentifer];
@@ -76,20 +105,66 @@ NSString *const SHDataSourceDefaultCellIdentifier = @"SHDataSourceDefaultCellIde
 }
 
 - (id)itemAtIndexPath:(NSIndexPath*)indexPath {
-	return self.itemCollection[indexPath.section][indexPath.row];
+	if(self.fetchedResultsController) {
+		return [self.fetchedResultsController objectAtIndexPath:indexPath];
+	} else if(self.itemCollection) {
+		return self.itemCollection[indexPath.section][indexPath.row];
+	} else {
+		NSAssert(NO, @"Either fetchedResultsController or itemCollection must be non nil!");
+		return nil;
+	}
 }
 
 - (NSInteger)sectionCount {
-	return self.itemCollection.count;
+	if(self.fetchedResultsController) {
+		return self.fetchedResultsController.sections.count;
+	} else if (self.itemCollection) {
+		return self.itemCollection.count;
+	} else {
+		NSAssert(NO, @"Either fetchedResultsController or itemCollection must be non nil!");
+		return 0;
+	}
 }
 
-- (NSInteger)rowCountForSection:(NSUInteger)section {
-	return section < self.itemCollection.count ? [self.itemCollection[section] count] : 0;
+- (NSInteger)rowCountForSection:(NSUInteger)sectionIndex {
+	if(self.fetchedResultsController) {
+		return sectionIndex < self.fetchedResultsController.sections.count ? ((id<NSFetchedResultsSectionInfo>)self.fetchedResultsController.sections[sectionIndex]).numberOfObjects : 0;
+	} else if(self.itemCollection) {
+		return sectionIndex < self.itemCollection.count ? [self.itemCollection[sectionIndex] count] : 0;
+	} else {
+		NSAssert(NO, @"Either fetchedResultsController or itemCollection must be non nil!");
+		return 0;
+	}
 }
 
 
-#pragma mark -
-#pragma mark Cell Identifiers (Private)
+// =================================================================================================
+#pragma mark - NSFetchedResultsControllerDelegate (Private)
+// =================================================================================================
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+	if([self.fetchedResultsControllerDelegate respondsToSelector:@selector(fetchedResultsController:didChangeObject:atIndexPath:forChangeType:newIndexPath:)]) {
+		[self.fetchedResultsControllerDelegate fetchedResultsController:controller didChangeObject:anObject atIndexPath:indexPath forChangeType:type newIndexPath:indexPath];
+	}
+}
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController*)controller {
+	if([self.fetchedResultsControllerDelegate respondsToSelector:@selector(fetchedResultsControllerWillChangeContent:)]) {
+		[self.fetchedResultsControllerDelegate fetchedResultsControllerWillChangeContent:controller];
+	}
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController*)controller {
+	if([self.fetchedResultsControllerDelegate respondsToSelector:@selector(fetchedResultsControllerDidChangeContent:)]) {
+		[self.fetchedResultsControllerDelegate fetchedResultsControllerDidChangeContent:controller];
+	}
+}
+
+
+// =================================================================================================
+#pragma mark - Cell Identifiers (Private)
+// =================================================================================================
 
 
 - (void)SH_associateCellIdentifier:(NSString *)cellIdentifier toItems:(NSArray *)items {

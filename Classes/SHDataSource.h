@@ -16,19 +16,30 @@ FOUNDATION_EXPORT NSString *const SHDataSourceInsertedItemNotification;
 FOUNDATION_EXPORT NSString *const SHDataSourceDeletedItemNotification;
 FOUNDATION_EXPORT NSString *const SHDataSourceMovedItemNotification;
 
+
+// =================================================================================================
+#pragma mark - SHDataSource Cell Data Handler
+// =================================================================================================
+
+
 @protocol SHDataSourcesCellDataHandler <NSObject>
 - (void)setData:(id)data;
 @end
 
+
+// =================================================================================================
+#pragma mark - SHDataSource Class Interface
+// =================================================================================================
+
+
 @interface SHDataSource : NSObject <UITableViewDataSource, UICollectionViewDataSource>
+
 @property(nonatomic, assign, getter=isEditable)BOOL editable;
 @property(nonatomic, assign, getter=isDraggingEnabled)BOOL draggingEnabled;
 @property(nonatomic, strong)SHDataSourceViewConfigurationHandler supplementaryElementConfigurationHandler;
 
 + (instancetype)dataSourceWithItemCollection:(SHItemCollection*)itemCollection cellConfigurationHandler:(SHDataSourceViewConfigurationHandler)cellConfigurationHandler __attribute((nonnull(1, 2)));
 - (instancetype)initWithItemCollection:(SHItemCollection*)itemCollection cellConfigurationHandler:(SHDataSourceViewConfigurationHandler)cellConfigurationHandler __attribute((nonnull(1, 2)));
-
-- (instancetype)init __attribute__((unavailable("Please use the custom initializer(s)!")));
 
 - (id)itemAtIndexPath:(NSIndexPath*)indexPath;
 - (NSString*)cellIdentifierForIndexPath:(NSIndexPath*)indexPath;

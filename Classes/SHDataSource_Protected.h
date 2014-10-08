@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Stefan Herold. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
 #import "SHDataSource.h"
 
 @interface SHDataSource ()
